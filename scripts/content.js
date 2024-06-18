@@ -1,17 +1,24 @@
-const prices = document.querySelectorAll(".a-price-whole");
+function getAveragePrice() {
+  const priceElements = document.querySelectorAll(".a-price-whole");
 
-if (prices) {
-  let allPrices = [];
+  if (priceElements) {
+    const priceValues = [];
 
-  prices.forEach((price) => {
-    allPrices.push(price.textContent);
-  });
+    priceElements.forEach((element) => {
+      priceValues.push(parseInt(element.textContent.replace(/\.$/, "")));
+    });
 
-  console.log(allPrices);
+    const totalPrices = priceValues.reduce((a, b) => a + b);
+    const averagePrice = Math.round(totalPrices / priceValues.length);
 
-  let reducedPrices = allPrices.reduce((a, b) => a + b);
-
-  console.log(reducedPrices / allPrices.length);
-} else {
-  alert("No prices found.");
+    return averagePrice;
+  }
 }
+
+function displayAveragePrice() {
+  const price = getAveragePrice();
+
+  console.log(`The average t-shirt price is ${price}` + `.99.`);
+}
+
+displayAveragePrice();
