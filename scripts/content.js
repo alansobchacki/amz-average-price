@@ -15,10 +15,14 @@ function getAveragePrice() {
   }
 }
 
-function displayAveragePrice() {
+function showAveragePrice() {
+  const averagePriceElement = document.createElement("div");
+  const header = document.querySelector(".s-no-outline");
   const price = getAveragePrice();
 
-  console.log(`The average t-shirt price is ${price}` + `.99.`);
+  averagePriceElement.textContent = `The average listing price is $${price}.99.`;
+
+  header.appendChild(averagePriceElement);
 }
 
-displayAveragePrice();
+showAveragePrice();

@@ -24,7 +24,7 @@
   "content_scripts": [
     {
       "js": ["scripts/content.js"],
-      "matches": ["https://www.amazon.com/*"]
+      "matches": ["https://www.amazon.com/s?*"]
     }
   ]
 }
