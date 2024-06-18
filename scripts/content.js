@@ -1,17 +1,17 @@
 function getAveragePrice() {
-  const priceElements = document.querySelectorAll(".a-price-whole");
+  const container = document.getElementById("search");
+  const priceElements = container.querySelectorAll(".a-price-whole");
 
   if (priceElements) {
-    const priceValues = [];
+    const prices = [];
 
     priceElements.forEach((element) => {
-      priceValues.push(parseInt(element.textContent.replace(/\.$/, "")));
+      prices.push(parseInt(element.textContent.replace(/\.$/, "")));
     });
 
-    const totalPrices = priceValues.reduce((a, b) => a + b);
-    const averagePrice = Math.round(totalPrices / priceValues.length);
+    const totalPrices = prices.reduce((a, b) => a + b);
 
-    return averagePrice;
+    return Math.round(totalPrices / prices.length);
   }
 }
 
